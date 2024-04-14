@@ -1,0 +1,25 @@
+site_name: Unpaginate
+site_description: Chain calls of paginated APIs
+site_author: Rogdham
+repo_url: https://github.com/rogdham/unpaginate
+site_url: https://unpaginate.rogdham.net/
+edit_uri: blob/master/docs/src
+docs_dir: src
+site_dir: ../dist/docs
+nav:
+  - Home: index.md
+  - External Links:
+      - Changelog: https://github.com/rogdham/unpaginate/blob/master/CHANGELOG.md
+      - Issue tracker: https://github.com/rogdham/unpaginate/issues
+      - Unpaginate @ GitHub: https://github.com/rogdham/unpaginate
+      - Unpaginate @ PyPI: https://pypi.org/project/unpaginate
+theme: readthedocs
+extra_css:
+  - css/extra.css
+markdown_extensions:
+  - admonition
+  - attr_list
+  - codehilite
+  - def_list
+  - md_in_html
+strict: true

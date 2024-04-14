@@ -1,0 +1,157 @@
+[project]
+dynamic = ["version"]
+name = "unpaginate"
+authors = [{ name = "Rogdham", email = "contact@rogdham.net" }]
+description = "Chain calls of paginated APIs"
+readme = { file = "README.md", content-type = "text/markdown" }
+keywords = ["api", "chain", "iterable", "page", "paginated", "pagination"]
+license.file = "LICENSE.txt"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Utilities",
+]
+requires-python = ">=3.8"
+dependencies = ["typing-extensions>=4.11.0 ; python_version<'3.13'"]
+
+[project.urls]
+Homepage = "https://github.com/rogdham/unpaginate"
+Documentation = "https://unpaginate.rogdham.net/"
+Source = "https://github.com/rogdham/unpaginate"
+
+#
+# build
+#
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+
+
+#
+# coverage
+#
+
+[tool.coverage.html]
+directory = "coverage"
+
+[tool.coverage.paths]
+source = [
+    "src/unpaginate/",
+    ".tox/py*/lib/python*/site-packages/unpaginate/",
+    ".tox/py*/site-packages/unpaginate/",
+]
+
+[tool.coverage.report]
+exclude_lines = ["pragma: no cover", "@overload"]
+show_missing = true
+
+[tool.coverage.run]
+branch = true
+source = ["unpaginate"]
+
+#
+# mypy
+#
+
+[tool.mypy]
+# Import discovery
+files = "src"
+ignore_missing_imports = false
+follow_imports = "normal"
+# Platform configuration
+python_version = 3.12
+# Disallow dynamic typing
+disallow_any_unimported = true
+disallow_any_decorated = false
+disallow_any_generics = true
+disallow_subclassing_any = true
+# Untyped definitions and calls
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+# None and Optional handling
+no_implicit_optional = true
+strict_optional = true
+# Configuring warning
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_return_any = true
+warn_unreachable = true
+# Suppressing errors
+ignore_errors = false
+# Miscellaneous strictness flags
+strict_equality = true
+# Configuring error messages
+show_error_context = true
+show_error_codes = true
+# Miscellaneous
+warn_unused_configs = true
+
+
+#
+# pytest
+#
+
+[tool.pytest.ini_options]
+addopts = """
+    --cov
+    --doctest-glob='*.md'
+    --doctest-modules --strict-markers
+    """
+doctest_optionflags = ["ELLIPSIS", "NORMALIZE_WHITESPACE", "NUMBER"]
+filterwarnings = ["error"]
+testpaths = ["docs", "tests"]
+
+
+#
+# ruff
+#
+
+[tool.ruff]
+src = ["src"]
+target-version = "py38"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "ANN101",
+    "ANN102",
+    "C901",
+    "COM812",
+    "D",
+    "E501",
+    "EM",
+    "FA100",
+    "ISC001",
+    "PLR0912",
+    "TRY003",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"docs/**" = ["D", "INP001", "PLR2004", "S101"]
+"tests/**" = ["D", "FBT", "INP001", "PLR2004", "S101", "SLF001"]
+
+[tool.ruff.lint.isort]
+force-sort-within-sections = true
+known-first-party = ["unpaginate"]
+
+[tool.ruff.lint.flake8-pytest-style]
+fixture-parentheses = false
+mark-parentheses = false
+parametrize-names-type = "list"
