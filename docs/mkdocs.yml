@@ -8,6 +8,13 @@ docs_dir: src
 site_dir: ../dist/docs
 nav:
   - Home: index.md
+  - User guide:
+      - Use cases: usecases.md
+      - Stop condition: stop.md
+      - Typing: typing.md
+  - API reference:
+      - "@unpaginate": decorator.md
+      - Pagination: pagination.md
   - External Links:
       - Changelog: https://github.com/rogdham/unpaginate/blob/master/CHANGELOG.md
       - Issue tracker: https://github.com/rogdham/unpaginate/issues

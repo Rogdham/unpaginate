@@ -17,3 +17,43 @@ Chain calls of paginated APIs
 </div>
 
 ---
+
+<!-- BEGIN README INSERT -->
+
+API endpoints are often paginated, meaning that you must chain requests to get the
+content in full. _Unpaginate_ provides a decorator to make that task easy:
+
+```python
+>>> from unpaginate import unpaginate
+
+>>> @unpaginate
+... def get_cities(pagination, country):
+...     return requests.post(
+...         "https://api.example.org/cities",
+...         json={"country": country, "page": pagination.page},
+...     ).json()["items"]
+```
+
+Calling the decorated function allows to iterate over all items of all pages:
+
+```python
+>>> iterator = get_cities("France")  # the 'pagination' parameter is added by the decorator
+>>> iterator
+<generator object get_cities ...>
+
+>>> next(iterator)
+'Paris'
+>>> next(iterator)
+'Lyon'
+>>> next(iterator)
+'Marseille'
+```
+
+All pagination schemes are supported:
+
+- [By page index](https://unpaginate.rogdham.net/usecases/#by-page)
+- [By offset](https://unpaginate.rogdham.net/usecases/#by-offset)
+- [Using a cursor](https://unpaginate.rogdham.net/usecases/#by-cursor)
+- Other schemes through [avdanced mode](https://unpaginate.rogdham.net/usecases/#advanced)
+
+<!-- END README INSERT -->

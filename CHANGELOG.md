@@ -15,3 +15,7 @@ For the purpose of determining breaking changes:
 [python-versions]: https://devguide.python.org/versions/#supported-versions
 
 ## [Unreleased]
+
+### :rocket: Added
+
+- Initial public release :tada:
