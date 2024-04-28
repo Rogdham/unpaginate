@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Rogdham" /><link rel="canonical" href="https://unpaginate.rogdham.net/pagination/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Pagination - Unpaginate</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Pagination";
+        var mkdocs_page_input_path = "pagination.md";
+        var mkdocs_page_url = "/pagination/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Unpaginate
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">User guide</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../usecases/">Use cases</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../stop/">Stop condition</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../typing/">Typing</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API reference</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../decorator/">@unpaginate</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Pagination</a>
+    <ul class="current">
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">External Links</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="https://github.com/rogdham/unpaginate/blob/master/CHANGELOG.md">Changelog</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://github.com/rogdham/unpaginate/issues">Issue tracker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://github.com/rogdham/unpaginate">Unpaginate @ GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://pypi.org/project/unpaginate">Unpaginate @ PyPI</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Unpaginate</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">API reference</li>
+      <li class="breadcrumb-item active">Pagination</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/rogdham/unpaginate/blob/master/docs/src/pagination.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="pagination-instance">Pagination instance</h1>
+<p>The <code>Pagination</code> instance passed to the decorated functions as the argument <code>pagination</code>
+contains the following attributes:</p>
+<dl>
+<dt id="page">page (<code>int</code>, read-only)</dt>
+<dd>
+<p>The index of the current page.</p>
+</dd>
+<dt id="offset">offset (<code>int</code>, read-only)</dt>
+<dd>
+<p>The index of the first item of the current page.</p>
+</dd>
+<dt id="context">context</dt>
+<dd>
+<p>Arbitrary data. Used to pass data from one page to the other, or for
+<a href="../stop/">stop conditions</a>.</p>
+</dd>
+<dt id="is_last_page">is_last_page (<code>bool</code>)</dt>
+<dd>
+<p>Setting this attribute to <code>True</code> indicates that the current page is the last one, so
+that the iteration is stopped and the next page is never called.</p>
+</dd>
+</dl>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../decorator/" class="btn btn-neutral float-left" title="@unpaginate"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rogdham/unpaginate" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../decorator/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

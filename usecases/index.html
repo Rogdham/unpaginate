@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Rogdham" /><link rel="canonical" href="https://unpaginate.rogdham.net/usecases/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Use cases - Unpaginate</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Use cases";
+        var mkdocs_page_input_path = "usecases.md";
+        var mkdocs_page_url = "/usecases/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Unpaginate
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">User guide</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Use cases</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#by-page">By page index</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#by-offset">By offset</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#by-cursor">Using a cursor</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#advanced">Advanced usage</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../stop/">Stop condition</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../typing/">Typing</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../decorator/">@unpaginate</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pagination/">Pagination</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">External Links</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="https://github.com/rogdham/unpaginate/blob/master/CHANGELOG.md">Changelog</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://github.com/rogdham/unpaginate/issues">Issue tracker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://github.com/rogdham/unpaginate">Unpaginate @ GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://pypi.org/project/unpaginate">Unpaginate @ PyPI</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Unpaginate</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">User guide</li>
+      <li class="breadcrumb-item active">Use cases</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/rogdham/unpaginate/blob/master/docs/src/usecases.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="use-cases">Use cases</h1>
+<p>The various uses cases in this page showcase representative examples of common
+pagination schemes.</p>
+<p>In most cases you will also be interested to learn about:</p>
+<ul>
+<li><a href="../stop/">Stop conditions</a>: specify when the iteration will stop without calling the
+  following page</li>
+<li><a href="../pagination/">Values held by the <code>pagination</code> argument</a>: values of the current page,
+  item offset, arbitrary context, etc.</li>
+<li><a href="../decorator/">Parameters of the <code>@unpaginate</code> decorator</a>: for example to be able to
+  specify the initial values of the <code>pagination</code> attributes</li>
+</ul>
+<h2 id="by-page">By page index</h2>
+<p>The value of the current page is held in <code>pagination.page</code>:</p>
+<pre class="codehilite"><code class="language-python">&gt;&gt;&gt; from unpaginate import unpaginate
+
+&gt;&gt;&gt; @unpaginate(page=1)
+... def get_cities0(pagination, country):
+...     return requests.post(
+...         &quot;https://api.example.org/cities&quot;,
+...         json={&quot;country&quot;: country, &quot;page&quot;: pagination.page},
+...     ).json()[&quot;items&quot;]
+</code></pre>
+
+<h2 id="by-offset">By offset</h2>
+<p>The index of the first item of the current page is held in <code>pagination.offset</code>:</p>
+<pre class="codehilite"><code class="language-python">&gt;&gt;&gt; from unpaginate import stop_on_page_smaller_than, unpaginate
+
+&gt;&gt;&gt; @unpaginate(stop=stop_on_page_smaller_than(100))
+... def get_cities1(pagination, country):
+...     return requests.post(
+...         &quot;https://api.example.org/cities&quot;,
+...         json={&quot;country&quot;: country, &quot;start&quot;: pagination.offset, &quot;limit&quot;: 100},
+...     ).json()[&quot;items&quot;]
+</code></pre>
+
+<h2 id="by-cursor">Using a cursor</h2>
+<p>Arbitrary data can be passed from one page to the other via <code>pagination.context</code>; this
+is ideal for API responses containing a cursor to fetch the next page.</p>
+<p>Get the cursor for the current page from the context, and write the cursor for the next
+page:</p>
+<pre class="codehilite"><code class="language-python">&gt;&gt;&gt; from unpaginate import stop_on_falsy_context, unpaginate
+
+&gt;&gt;&gt; @unpaginate(stop=stop_on_falsy_context)
+... def get_cities2(pagination, country):
+...     data = requests.post(
+...         &quot;https://api.example.org/cities&quot;,
+...         json={&quot;country&quot;: country, &quot;cursor&quot;: pagination.context},
+...     ).json()
+...     pagination.context = data.get(&quot;next_cursor&quot;)
+...     return data[&quot;items&quot;]
+</code></pre>
+
+<h2 id="advanced">Advanced usage</h2>
+<p>The usages above are the more frequent ones. Others can be implemented manually by
+combining some of the following building blocks:</p>
+<ul>
+<li>Getting the <a href="../pagination/#page">page</a> and <a href="../pagination/#offset">item offset</a> values
+  through <code>pagination.page</code> and <code>pagination.offset</code> respectively</li>
+<li>Passing <a href="../pagination/#context">arbitrary data</a> from one page to the other though the
+  <code>pagination.context</code> attribute</li>
+<li><a href="../pagination/#is_last_page">Specifying manually when the last page is reached</a> by
+  setting <code>pagination.is_last_page</code> to <code>True</code>, and
+  <a href="../stop/#stop_manual">avoid stopping on the first empty page</a> by using
+  <code>@unpaginate(stop=stop_manual)</code></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../stop/" class="btn btn-neutral float-right" title="Stop condition">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rogdham/unpaginate" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../stop/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
