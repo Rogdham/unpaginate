@@ -42,7 +42,7 @@ All pagination schemes are supported:
 - [By page index](usecases.md#by-page)
 - [By offset](usecases.md#by-offset)
 - [Using a cursor](usecases.md#by-cursor)
-- Other schemes through [avdanced mode](usecases.md#advanced)
+- Other schemes through [advanced mode](usecases.md#advanced)
 
 <!-- END README INSERT -->
 
