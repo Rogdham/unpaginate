@@ -54,6 +54,6 @@ All pagination schemes are supported:
 - [By page index](https://unpaginate.rogdham.net/usecases/#by-page)
 - [By offset](https://unpaginate.rogdham.net/usecases/#by-offset)
 - [Using a cursor](https://unpaginate.rogdham.net/usecases/#by-cursor)
-- Other schemes through [avdanced mode](https://unpaginate.rogdham.net/usecases/#advanced)
+- Other schemes through [advanced mode](https://unpaginate.rogdham.net/usecases/#advanced)
 
 <!-- END README INSERT -->

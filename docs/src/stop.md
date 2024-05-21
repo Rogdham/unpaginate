@@ -70,6 +70,6 @@ For example, to stop when the value on the context stops increasing by one:
     The `|` and `&` operators will work as expected, assuming that one of the operands
     is a provided stop condition, e.g. `my_stop | stop_on_page_smaller_than(100)`.
 
-    However, combining only custom stop conditions is not posible directly, instead
+    However, combining only custom stop conditions is not possible directly, instead
     start with `stop_manual` (because it does nothing): e.g.
     `stop_manual | my_stop1 | my_stop2`.
